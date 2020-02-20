@@ -9,6 +9,7 @@ def f(x):
     
     #y = (  (math.pow(x,3)) + (2 * (math.pow(x,2))) + (7 * x) - (20)    )    # x^3 +2x^2 +7x -20
 
+    #y = ()
 
     return float(y)
 
@@ -50,14 +51,17 @@ def reglafalsa(Xizq,Xder,error,iteracion):
 
         if(YdeXm >= 0 ):
             print('XM ES POSITIVO')
-            nuevaDerecha = Xm
-            reglafalsa(Xizq,nuevaDerecha,error,iteracion)
+            if(Yder >= 0):
+                reglafalsa(Xizq,Xm,error,iteracion)
+            elif(Yizq >=0):
+                reglafalsa(Xm,Xder,error,iteracion)
+                
         elif(YdeXm < 0):
             print('XM ES NEGATIVO')
-
-            nuevaIzquierda = Xm
-
-            reglafalsa(nuevaIzquierda,Xder,error,iteracion)
+            if(Yder < 0):
+                reglafalsa(Xizq,Xm,error,iteracion)
+            elif(Yizq < 0):
+                reglafalsa(Xm,Xder,error,iteracion)
 
 
 

@@ -13,11 +13,7 @@ def f(x):
     return float(y)
 
 def biseccion(Xizq,Xder,error,iteracion):
-    
-
-
     while(True):
-
         #Conseguimos el valor de y de x izquierda y derecha
         Yizq = f(Xizq) #Conseguimos F de X de X Izquierda
         Yder = f(Xder) #Conseguimos F de X de X Derecha
@@ -50,14 +46,18 @@ def biseccion(Xizq,Xder,error,iteracion):
 
         if(YdeXm >= 0 ):
             print('XM ES POSITIVO')
-            nuevaDerecha = Xm
-            biseccion(Xizq,nuevaDerecha,error,iteracion)
+            if(Yder >= 0):
+                biseccion(Xizq,Xm,error,iteracion)
+            elif(Yizq >=0):
+                biseccion(Xm,Xder,error,iteracion)
+                
         elif(YdeXm < 0):
             print('XM ES NEGATIVO')
+            if(Yder < 0):
+                biseccion(Xizq,Xm,error,iteracion)
+            elif(Yizq < 0):
+                biseccion(Xm,Xder,error,iteracion)
 
-            nuevaIzquierda = Xm
-
-            biseccion(nuevaIzquierda,Xder,error,iteracion)
 
 
 
