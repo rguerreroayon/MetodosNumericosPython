@@ -19,8 +19,9 @@ def newtonRaphson(xInicial, error):
     iteracion = 0
     FdX = 0
     FdXDerivada = 0
+    continua = True
 
-    while(True):
+    while(continua):
         if(iteracion != 0):
             xInicial = xInicial - (FdX/FdXDerivada)
 
@@ -36,7 +37,8 @@ def newtonRaphson(xInicial, error):
 
         if(abs(FdX) < error):
             print('Raiz encontrada en la iteracion '+str(iteracion)+' con el valor de '+str(FdX))
-            exit()
+            continua = False    
+            
 
 
         iteracion = iteracion + 1
